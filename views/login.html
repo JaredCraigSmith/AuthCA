@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    
+<head>
+    <title>User Login and Sessions</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+        
+<body> 
+<div id="login_box">
+    <div style="font-size: 40px; text-decoration: underline;">What's for Dinner</div>
+    <div class="form-container">
+        <p class="form-header">Login to your menu</p>
+        <form method="POST" action="/login">
+            <label>Username:</label>
+            <input type="text" id="username" name="username"><br>
+            <label>Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" id="login" value="Login">
+        </form>
+    </div>
+    <a id="signUpLink" href="/signup">Sign Up</a>
+    <hr>
+    <span id="loginMsg">
+ 
+    </span>
+    <hr>
+    <div>
+        Tired of having to decide what to make for dinner?
+        Make an account to store all your dinner ideas, then
+        let the app randomly pick an idea for you every night!
+    </div>
+    </div>
+</body>
+        
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>User Login and Sessions</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+     
+</head>
+
+<body>
+    <div id="login_box">
+        <a id="homeLink" href="/">Home</a>
+        <span>||</span>
+        <a href="http://www.recipe.com/" target="_blank">http://www.recipe.com/</a>
+        <hr>
+        <div class="form-container" ng-controller="myController">
+            <p id="sectionTitle" class="form-header">User Profile</p>
+            <form method="POST" action="/user/update">
+                <label>Username:</label>
+                <input type="text" id="username" name="username" ng-model="user.username" disabled><br>
+                <label>Email:</label>
+                <input type="email" id="email" name="email" ng-model="user.email"><br>
+                <input type="submit" id="save" value="Save">
+            </form>
+
+
+            <hr>
+            <form method="POST" ng-submit="addRecipe()">
+                <!--<input type="text" id="username" name="username" ng-model="user.username" ><br>-->
+                <label>Dinner recipe title:</label>
+                <input type="text" id="recipe_title" name="recipe_title" ng-model="user.recipe_title"><br>
+                <label>Recipe</label><br>
+                <textarea style="height:150px" name="instruction" ng-model="user.instruction"></textarea><br>
+                <input type="submit" id="add" value="Add"><br>
+            </form>
+
+            <br>
+            <br>
+            <div>Complete Menu - <b style="color:hotpink">click on a recipe to view</b></div>
+            <hr>
+            <div ng-repeat="Recipe in RecipesList | orderBy: 'title'">
+                <span class="glyphicon glyphicon-remove" ng-click="removeRecipe(Recipe)"></span>
+                <span ng-click="displayRecipe(Recipe)" style="cursor:pointer">{{Recipe.title}}</span>
+            </div>
+
+        </div>
+
+
+        <span id="userMsg">
+    
+    </span>
+        <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+        <script src="/javascripts/my_app.js"></script>
+    </div>
+</body>
+
+</html>
